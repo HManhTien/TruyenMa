@@ -27,6 +27,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    public void chayweb(String index){
+
+        WebView webView = findViewById(R.id.webView);
+        WebSettings webSettings = webView.getSettings();
+        webSettings.setJavaScriptEnabled(true); // Cho phép chạy mã JavaScript
+        webView.loadUrl("file:///android_asset/"+index+".html");
+    }
     public void Show_menu(){
         PopupMenu show_menu = new PopupMenu(this , btn);
         show_menu.getMenuInflater().inflate(R.menu.show_menu ,show_menu.getMenu());
@@ -36,14 +43,8 @@ public class MainActivity extends AppCompatActivity {
                 txt = findViewById(R.id.textView);
                 int itemId = item.getItemId();
                if(R.id.item1 == itemId){
-                   WebView webView = findViewById(R.id.webView);
-
-                   // Thiết lập các cài đặt của WebView
-                   WebSettings webSettings = webView.getSettings();
-                   webSettings.setJavaScriptEnabled(true); // Cho phép chạy mã JavaScript
-
-                   // Load file index.html từ thư mục assets
-                   webView.loadUrl("file:///android_asset/index.html");
+                   txt.setText("Ma nữ");
+                   chayweb("index");
                }else if (R.id.item2 == itemId) {
                    txt.setText("Số 2");
                }else if(R.id.item3== itemId){
